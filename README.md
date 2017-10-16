@@ -1,4 +1,4 @@
-# Project Title
+# Venn Tool
 
 Tool To Visualize Intersections of Data from Different Sources
 
@@ -53,6 +53,12 @@ touch matplotlibrc
 echo backend: TkAgg > matplotlibrc
 ```
 
+To install the requirements for the tool globally so you dont need to run the tool in virtualenv use pip:
+
+```
+sudo pip install -r requirements.txt
+```
+
 The file format for running this script is a .csv file. Currently the project only supports 3 column .csv files with the following format:
 
 ```
@@ -68,10 +74,24 @@ Data31,...,...
 DataN1,DataN2,DataN3
 ```
 
-Run the script with the following command:
+Run the script in virtualenv command:
+
+```
+source env/bin/activate
+python main.py -i test.csv
+```
+
+Turn off virtualenv when you aren't using the tool with the following command:
+
+```
+deactivate
+```
+
+Run the script with the following command if you installed the modules and dont want to use virtualenv:
 
 ```
 python main.py -i test.csv
+
 ```
 
 
