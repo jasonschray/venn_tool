@@ -39,7 +39,7 @@ Now you have virtualenv which are required to run this tool easily.
 
 Below are the steps to install this project and run it locally. First follow the steps in pre-requisites.
 
-First make a folder called venn_tool and navigate to it in the terminal. Then copy the contents of the [Zip File](https://github.com/jasonschray/memFlash/archive/master.zip) to the folder or  enter the following command in the terminal if you have git:
+First make a folder called venn_tool and navigate to it in the terminal. Then copy the contents of the [Zip File](https://github.com/jasonschray/venn_tool/archive/master.zip) to the folder or  enter the following command in the terminal if you have git:
 
 ```
 https://github.com/jasonschray/venn_tool.git
