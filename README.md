@@ -12,7 +12,7 @@ This is project was developed on Python 2.7. There is a virtual environment used
 
 #### Getting PIP
     
-First copy the file from the following link onto your computer as "get-pip.py":
+First copy the text from the following link onto your computer in a new file that you name "get-pip.py":
 
 ```
 https://bootstrap.pypa.io/get-pip.py
@@ -42,7 +42,7 @@ Below are the steps to install this project and run it locally. First follow the
 First make a folder called venn_tool and navigate to it in the terminal. Then copy the contents of the [Zip File](https://github.com/jasonschray/memFlash/archive/master.zip) to the folder or  enter the following command in the terminal if you have git:
 
 ```
-git clone https://github.com/jasonschray/memFlash.git
+https://github.com/jasonschray/venn_tool.git
 ```
 
 If you have a MAC cpmputer,you must update the matplotlibrc file on your computer so that the plotting will run properly. Enter the following commands to update the file. 
