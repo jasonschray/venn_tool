@@ -66,17 +66,17 @@ def main():
     group_010 = (set(colB.tolist()).difference(set(group_110))).difference(set(group_011)).difference(set(group_111))
     group_001 = (set(colC.tolist()).difference(set(group_011))).difference(set(group_101)).difference(set(group_111))
 
-    logging.info('Sharted Proteins between '+str(colA.name)+
+    logging.info('Sharted Items between '+str(colA.name)+
                  ' and '+str(colB.name)+':\n'+str(group_110)+'\n')
-    logging.info('Sharted Proteins between '+str(colB.name)+
+    logging.info('Sharted Items  between '+str(colB.name)+
                  ' and '+str(colC.name)+':\n'+str(group_011)+'\n')
-    logging.info('Sharted Proteins between '+str(colA.name)+
+    logging.info('Sharted Items  between '+str(colA.name)+
                  ' and '+str(colC.name)+':\n'+str(group_101)+'\n')
-    logging.info('Sharted Proteins between '+str(colA.name)+', '+str(colB.name)+', '+
+    logging.info('Sharted Items  between '+str(colA.name)+', '+str(colB.name)+', '+
                  ' and '+str(colC.name)+':\n'+str(group_111)+'\n')
-    logging.info('Unique Protiens of '+str(colA.name)+':\n'+ str(group_100)+'\n')
-    logging.info('Unique Protiens of '+str(colB.name)+':\n'+ str(group_010)+'\n')
-    logging.info('Unique Protiens of '+str(colC.name)+':\n'+ str(group_001)+'\n')
+    logging.info('Unique Items  of '+str(colA.name)+':\n'+ str(group_100)+'\n')
+    logging.info('Unique Items  of '+str(colB.name)+':\n'+ str(group_010)+'\n')
+    logging.info('Unique Items  of '+str(colC.name)+':\n'+ str(group_001)+'\n')
     basic_data = {colA.name:colA.tolist(),
                   colB.name:colB.tolist(),
                   colC.name:colC.tolist(),
