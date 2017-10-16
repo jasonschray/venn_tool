@@ -1,0 +1,17 @@
+To make this run on your local machine, go to the following root directory:
+
+    cd ~/.matplotlib
+
+Then create a file with the following command:
+
+    vim matplotlibrc
+
+Then type i to enter insert mode and input the following string into the file:
+
+    backend: TkAgg
+
+Then save the file by pressing ESC and then typing the following string and pressing ENTER:
+
+    :wq
+
+
