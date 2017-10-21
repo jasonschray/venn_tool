@@ -81,6 +81,13 @@ source env/bin/activate
 python main.py -i test.csv
 ```
 
+Access the help menu of the script in virtualenv with the following command:
+
+```
+source env/bin/activate
+python main.py -h
+```
+
 Turn off virtualenv when you aren't using the tool with the following command:
 
 ```
