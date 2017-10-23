@@ -6,12 +6,13 @@ from matplotlib import pyplot as plt
 from matplotlib_venn import venn3, venn3_circles
 from matplotlib_venn_wordcloud import venn2_wordcloud, venn3_wordcloud
 
+
 def read_file():
     return True
 
 def main():
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "hi:v", ["help", "input=", "verbose"])
+        opts, args = getopt.getopt(sys.argv[1:], "hi:vw", ["help", "input=", "verbose", "wordcloud"])
     except getopt.GetoptError as err:
         # print help information and exit:
         print str(err)  # will print something like "option -a not recognized"
@@ -19,6 +20,7 @@ def main():
         sys.exit(2)
     verbose = False
     fileName = None
+    wordCloud = False
     for o, a in opts:
         if o == "-v":
             verbose = True
@@ -27,6 +29,8 @@ def main():
             sys.exit()
         elif o in ("-i", "--input"):
             fileName = a
+        elif o in ("-w", "--wordcloud"):
+            wordCloud = True
         else:
             assert False, "unhandled option"
 
@@ -92,21 +96,30 @@ def main():
     data_and_labels = {'data':intersectioned_data,
                        'lables':(colA.name,colB.name,colC.name)}
 #    plot_simple_3venn_diagram(basic_data)
-    plot_basic_venn_diagram(data_and_labels)
-    
-def plot_simple_3venn_diagram(data):
-    set1 = set(['A', 'B', 'C', 'D'])
-    set2 = set(['B', 'C', 'D', 'E'])
-    set3 = set(['C', 'D',' E', 'F', 'G'])
-    
-    venn3([set1, set2, set3], ('Set1', 'Set2', 'Set3'))
+    #plot_basic_venn_diagram(data_and_labels)
+
+    if wordCloud:
+        plot_wordcloud_venn3(basic_data)
+    else:
+        plot_basic_venn3_diagram(data_and_labels)
+
+def color_funct(*args, **kwargs):
+    return '#00000f'
+
+def plot_wordcloud_venn3(data):
+    names = list();
+    for name in data:
+        names.append(name)
+
+
+    venn3_wordcloud([set(data[names[0]]), set(data[names[1]]), set(data[names[2]])],wordcloud_kwargs=dict(color_func=color_funct,prefer_horizontal=1),set_labels=names)
     plt.show()
 
 def convert_list_to_double_word(word_list):
     return True
 
 
-def plot_basic_venn_diagram(data_and_labels):
+def plot_basic_venn3_diagram(data_and_labels):
     # Subset sizes
     data = data_and_labels['data']
     s = (
@@ -155,7 +168,7 @@ def plot_basic_venn_diagram(data_and_labels):
     v.get_patch_by_id('111').set_alpha(0.7)
 
     # Border styles
-    c = venn3_circles(subsets=s, linestyle='None')
+    c = venn3_circles(subsets=s, linestyle=None)
     c[0].set_lw(0) 
     c[1].set_lw(0)
     c[2].set_lw(0)     
@@ -174,7 +187,9 @@ def usage():
           ' -i [input file], --input [input file]\n'+
           '     This is a required input argument that specifices the path of input data\n'+
           ' -v, --verbose\n'+
-          '     This makes the script more verbose in its logging'
+          '     This makes the script more verbose in its logging\n'+
+          ' -w, --wordcloud\n'+
+          '     This makes the plot output the data in a wordcloud format on a venn diagram as opposed to a list'
           )
 
 
